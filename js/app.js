@@ -5,7 +5,7 @@ function drag(event){
     event.dataTransfer.setData('text/plain', event.target.id);
     dom = event.target.id;
 
-    event.currentTarget.style.backgroundColor = 'yellow';
+    event.currentTarget.style.backgroundColor = '#bbbbbb';
 }
 
 function drop(event){
