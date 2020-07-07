@@ -1,0 +1,12 @@
+body{
+    height: 100vh;
+}
+
+.item{
+    padding: 5px;
+    border: 1px #e0e0e0 solid;
+}
+
+.ghost{
+    opacity: 0.4;
+}
