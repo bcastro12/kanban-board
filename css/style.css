@@ -1,10 +1,36 @@
 body {
-    height: 100vh;
     font-family: "Work Sans", sans-serif;
 }
 
 h1 {
-    font-weight: 400;
+    font-family: 'Galada', cursive;
+    margin: 0;
+}
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+    20%,
+    60% {
+        transform: rotate(-25deg);
+    }
+    40%,
+    80% {
+        transform: rotate(10deg);
+    }
+}
+@media (max-width: 500px) {
+    .github-corner:hover .octo-arm {
+        animation: none;
+    }
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+    }
 }
 
 .backlog {
@@ -52,5 +78,12 @@ h1 {
     background-color: transparent;
     text-align: center;
     opacity: 0.7;
+    display: none;
+}
+
+#json {
+    background-color: #437171;
+    padding: 25px;
+    border-radius: 5px;
     display: none;
 }
