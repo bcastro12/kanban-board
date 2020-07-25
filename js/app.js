@@ -21,7 +21,7 @@ function drop(event) {
     draggableElement.style.backgroundColor = bgcolor;
     draggableElement.classList.remove("ghost");
     event.dataTransfer.clearData();
-    
+
     check();
 }
 
@@ -31,7 +31,6 @@ function over(event) {
     let draggableElement = document.getElementById(dom);
     let dropzone = event.target.closest(".items");
     dropzone.insertBefore(draggableElement, event.target.closest(".item"));
-    
 }
 
 function exit(event) {
@@ -41,25 +40,31 @@ function exit(event) {
 
 function check() {
     elems = [...document.getElementsByClassName("items")];
-    elems.forEach((el,index) => {
-
-        obj[el.getAttribute('id')] = {};
+    elems.forEach((el, index) => {
+        obj[el.getAttribute("id")] = {};
         arrEl = [];
-        [...el.children].forEach((child,i) => {
-            arrEl.push(child.getAttribute('id'));
+        [...el.children].forEach((child, i) => {
+            arrEl.push(child.getAttribute("id"));
         });
-        obj[el.getAttribute('id')] = arrEl;
+        obj[el.getAttribute("id")] = arrEl;
     });
     console.log(obj);
-    document.getElementById('json').innerHTML = "<code><pre>" + JSON.stringify(obj,null,1) + "</pre></code>";
-    document.getElementById('json').style.display = 'block';
+    document.getElementById("json").innerHTML = "<code><pre>" + JSON.stringify(obj, null, 1) + "</pre></code>";
+    document.getElementById("json").style.display = "block";
 }
 
-function sendform(){
-    let backlog = document.getElementById('backlog');
-    let newitem = document.getElementById('new-item');
-    backlog.innerHTML += "<div id='"+ (document.getElementsByClassName('item').length + 1) +"' class='item d-flex' draggable='true' ondragstart='drag(event)' ondragend='exit(event)'>"+ newitem.value +"</div>";
-    newitem.value = '';
+function sendform() {
+    let backlog = document.getElementById("backlog");
+    let newitem = document.getElementById("new-item");
+    if (newitem.value.replace(/&nbsp;?/g, " ").trim() == "") return false;
+
+    backlog.innerHTML +=
+        "<div id='" +
+        (document.getElementsByClassName("item").length + 1) +
+        "' class='item d-flex' draggable='true' ondragstart='drag(event)' ondragend='exit(event)'>" +
+        newitem.value +
+        "</div>";
+    newitem.value = "";
     check();
     return false;
 }
