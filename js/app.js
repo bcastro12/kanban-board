@@ -40,10 +40,10 @@ function exit(event) {
 
 function check() {
     elems = [...document.getElementsByClassName("items")];
-    elems.forEach((el, index) => {
+    elems.forEach((el) => {
         obj[el.getAttribute("id")] = {};
         arrEl = [];
-        [...el.children].forEach((child, i) => {
+        [...el.children].forEach((child) => {
             arrEl.push(child.getAttribute("id"));
         });
         obj[el.getAttribute("id")] = arrEl;
